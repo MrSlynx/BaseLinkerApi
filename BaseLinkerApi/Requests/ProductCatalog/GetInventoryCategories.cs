@@ -9,6 +9,9 @@ namespace BaseLinkerApi.Requests.ProductCatalog;
 /// </summary>
 public class GetInventoryCategories : IRequest<GetInventoryCategories.Response>
 {
+    [JsonPropertyName("inventory_id")]
+    public int InventoryId { get; set; }
+    
     public class Category
     {
         [JsonPropertyName("category_id")]

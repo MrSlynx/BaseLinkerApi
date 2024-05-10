@@ -196,6 +196,7 @@ public class GetOrders : IRequest<GetOrders.Response>
         [JsonPropertyName("payment_method")]
         public string PaymentMethod { get; set; }
 
+        [JsonConverter(typeof(BoolConverter))]
         [JsonPropertyName("payment_method_cod")]
         public bool PaymentMethodCod { get; set; }
 
@@ -280,6 +281,7 @@ public class GetOrders : IRequest<GetOrders.Response>
         [JsonPropertyName("invoice_country_code")]
         public string InvoiceCountryCode { get; set; }
 
+        [JsonConverter(typeof(BoolConverter))]
         [JsonPropertyName("want_invoice")]
         public bool WantInvoice { get; set; }
 
@@ -292,7 +294,7 @@ public class GetOrders : IRequest<GetOrders.Response>
         public string ExtraField2 { get; set; }
         
         [JsonPropertyName("custom_extra_fields")]
-        public Dictionary<object, object> CustomExtraFields { get; set; }
+        public Dictionary<String, object> CustomExtraFields { get; set; }
 
         [JsonPropertyName("order_page")]
         public string OrderPage { get; set; }

@@ -38,6 +38,24 @@ public class SetOrderFields : IRequest
     /// </summary>
     [JsonPropertyName("payment_method_cod")]
     public bool? PaymentMethodCod { get; set; }
+    
+    /// <summary>
+    /// Buyer e-mail address
+    /// </summary>
+    [JsonPropertyName("email")]
+    public string? Email { get; set; }
+    
+    /// <summary>
+    /// Buyer phone number
+    /// </summary>
+    [JsonPropertyName("phone")]
+    public string? Phone { get; set; }
+    
+    /// <summary>
+    /// Buyer login
+    /// </summary>
+    [JsonPropertyName("user_login")]
+    public string? UserLogin { get; set; }
 
     /// <summary>
     /// Delivery method name

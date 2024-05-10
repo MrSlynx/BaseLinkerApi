@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Text.Json.Serialization;
 using BaseLinkerApi.Common;
 
 namespace BaseLinkerApi.Requests.Orders;
@@ -107,6 +108,6 @@ public class AddOrderProduct : IRequest<AddOrderProduct.Response>
         /// Identifier of the item added to the order.
         /// </summary>
         [JsonPropertyName("order_product_id")]
-        public string OrderProductId { get; set; }
+        public Int32 OrderProductId { get; set; }
     }
 }
