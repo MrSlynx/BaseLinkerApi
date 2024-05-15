@@ -12,7 +12,7 @@ namespace BaseLinkerApi.Requests.Orders;
 public class GetJournalList : IRequest<GetJournalList.Response>
 {
     [JsonPropertyName("last_log_id")]
-    public int LastLogId { get; set; }
+    public Int64 LastLogId { get; set; }
 
     [JsonPropertyName("logs_types")]
     public List<int> LogsTypes { get; set; }
@@ -25,7 +25,7 @@ public class GetJournalList : IRequest<GetJournalList.Response>
         public class Log
         {
             [JsonPropertyName("log_id")]
-            public int LogId { get; set; }
+            public Int64 LogId { get; set; }
 
             [JsonPropertyName("log_type")]
             public int LogType { get; set; }
