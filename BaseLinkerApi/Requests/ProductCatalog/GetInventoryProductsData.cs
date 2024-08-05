@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using BaseLinkerApi.Common;
 
@@ -24,10 +25,10 @@ public class GetInventoryProductsData : IRequest<GetInventoryProductsData.Respon
     public class Link
     {
         [JsonPropertyName("product_id")]
-        public int ProductId { get; set; }
+        public String ProductId { get; set; }
             
         [JsonPropertyName("variant_id")]
-        public int VariantId { get; set; }
+        public String VariantId { get; set; }
     }
 
     public class Variant

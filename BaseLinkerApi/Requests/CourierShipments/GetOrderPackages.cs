@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using BaseLinkerApi.Common;
+using BaseLinkerApi.Common.JsonConverters;
 
 namespace BaseLinkerApi.Requests.CourierShipments;
 
@@ -40,6 +42,16 @@ public class GetOrderPackages : IRequest<GetOrderPackages.Response>
 
         [JsonPropertyName("tracking_status")]
         public string TrackingStatus { get; set; }
+        
+        [JsonPropertyName("package_type")]
+        public String PackageType { get; set; }
+        
+        [JsonPropertyName("tracking_url")]
+        public String TrackingUrl { get; set; }
+        
+        [JsonConverter(typeof(BoolConverter))]
+        [JsonPropertyName("is_return")]
+        public Boolean IsReturn { get; set; }
     }
         
     public class Response : ResponseBase
