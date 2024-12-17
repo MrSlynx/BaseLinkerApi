@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -8,12 +9,21 @@ internal class StringToNullableDecimalConverter : JsonConverter<decimal?>
 {
     public override decimal? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
-        return reader.TokenType switch
+        switch (reader.TokenType)
         {
-            JsonTokenType.Number => reader.GetDecimal(),
-            JsonTokenType.String => null, // could do decimal.TryParse?
-            _ => throw new ArgumentOutOfRangeException()
-        };
+            case JsonTokenType.Number:
+                return reader.GetDecimal();
+            case JsonTokenType.String:
+            {
+                if (Decimal.TryParse(reader.GetString(), NumberStyles.None, CultureInfo.InvariantCulture, out Decimal dec))
+                {
+                    return dec;
+                }
+                return null;
+            }
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 
     public override void Write(Utf8JsonWriter writer, decimal? value, JsonSerializerOptions options)
