@@ -75,6 +75,7 @@ public class BaseLinkerApiClient : IBaseLinkerApiClient
             { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull, AllowTrailingCommas = true };
         jsonSerializerOptions.Converters.Add(new BoolConverter());
         jsonSerializerOptions.Converters.Add(new StringToNullableDecimalConverter());
+        jsonSerializerOptions.Converters.Add(new StringToDecimalConverter());
         var data = new Dictionary<string, string>
         {
             { "method", JsonNamingPolicy.CamelCase.ConvertName(request.GetType().Name) },
