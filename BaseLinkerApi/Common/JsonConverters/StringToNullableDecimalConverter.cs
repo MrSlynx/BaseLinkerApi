@@ -15,7 +15,7 @@ internal class StringToNullableDecimalConverter : JsonConverter<decimal?>
                 return reader.GetDecimal();
             case JsonTokenType.String:
             {
-                if (Decimal.TryParse(reader.GetString(), NumberStyles.None, CultureInfo.InvariantCulture, out Decimal dec))
+                if (Decimal.TryParse(reader.GetString(), NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out Decimal dec))
                 {
                     return dec;
                 }
